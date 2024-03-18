@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: noisy-unicorn-python-gitops
+  description: This is GitOps manifest for noisy-unicorn-python   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-name: noisy-unicorn-python
+    janus-idp.io/tekton: noisy-unicorn-python 
+    backstage.io/kubernetes-id: noisy-unicorn-python 
+    backstage.io/techdocs-ref: dir:. 
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:noisy-unicorn-python
